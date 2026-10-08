@@ -1,0 +1,41 @@
+/* Statistic cards on the dashboard */
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.1rem 1.1rem 1rem;
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.08);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  border-left: 4px solid var(--accent, var(--brand));
+}
+.stat-card i {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.9rem;
+  font-size: 1.5rem;
+  color: var(--accent, var(--brand));
+  opacity: 0.35;
+}
+.stat-value { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.stat-label { color: #6b7280; font-size: 0.85rem; margin-top: 0.25rem; }
+
+.stat-primary { --accent: #4f46e5; }
+.stat-info    { --accent: #3b82f6; }
+.stat-warning { --accent: #f59e0b; }
+.stat-purple  { --accent: #06b6d4; }
+.stat-success { --accent: #22c55e; }
+.stat-danger  { --accent: #ef4444; }
+
+/* Application details page */
+.detail-item { margin-bottom: 1.1rem; }
+.detail-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 0.15rem;
+}
+.detail-value { font-size: 1rem; word-break: break-word; }
+.notes-text { white-space: pre-wrap; }
+.status-select { width: auto; min-width: 160px; }

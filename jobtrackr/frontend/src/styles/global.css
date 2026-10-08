@@ -1,0 +1,176 @@
+/* ---------- Base ---------- */
+:root {
+  --brand: #4f46e5;
+  --brand-dark: #3730a3;
+  --sidebar-bg: #111827;
+  --sidebar-width: 260px;
+  --page-bg: #f3f4f8;
+}
+
+body {
+  background: var(--page-bg);
+  color: #1f2937;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+a { color: var(--brand); }
+
+.btn-primary {
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand-dark);
+  --bs-btn-hover-border-color: var(--brand-dark);
+  --bs-btn-active-bg: var(--brand-dark);
+  --bs-btn-active-border-color: var(--brand-dark);
+  --bs-btn-disabled-bg: var(--brand);
+  --bs-btn-disabled-border-color: var(--brand);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand);
+  --bs-btn-hover-border-color: var(--brand);
+  --bs-btn-active-bg: var(--brand);
+  --bs-btn-active-border-color: var(--brand);
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.08);
+}
+.card-header {
+  background: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid #eef0f4;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.table > :not(caption) > * > * { padding: 0.85rem 1rem; }
+.table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #eef0f4;
+  white-space: nowrap;
+}
+
+/* ---------- App layout (sidebar + content) ---------- */
+.app-shell { min-height: 100vh; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #d1d5db;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0.9rem;
+  z-index: 1040;
+  transition: transform 0.25s ease;
+}
+.sidebar-brand {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0 0.6rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
+.sidebar-brand small {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+.sidebar-nav { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  color: #d1d5db;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.sidebar-link i { font-size: 1.1rem; }
+.sidebar-link:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
+.sidebar-link.active { background: var(--brand); color: #fff; }
+.sidebar-logout { margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0 0 8px 8px; padding-top: 1rem; }
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1035;
+}
+
+.main-area { margin-left: var(--sidebar-width); min-height: 100vh; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+.topbar-brand { font-weight: 700; color: var(--brand); }
+.topbar-user { color: #4b5563; font-weight: 500; }
+
+.page-content { padding: 1.75rem; flex: 1; max-width: 1400px; width: 100%; }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.page-header h2 { margin: 0; font-weight: 700; font-size: 1.6rem; }
+
+/* Mobile / tablet: sidebar slides in from the left */
+@media (max-width: 991.98px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-area { margin-left: 0; }
+  .page-content { padding: 1rem; }
+  .topbar { padding: 0.6rem 1rem; }
+}
+
+/* ---------- Status badges ---------- */
+.status-badge {
+  display: inline-block;
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.status-applied      { background: #dbeafe; color: #1d4ed8; }
+.status-under_review { background: #fef3c7; color: #b45309; }
+.status-shortlisted  { background: #ede9fe; color: #6d28d9; }
+.status-interview    { background: #cffafe; color: #0e7490; }
+.status-selected     { background: #dcfce7; color: #15803d; }
+.status-rejected     { background: #fee2e2; color: #b91c1c; }
+.status-withdrawn    { background: #e5e7eb; color: #4b5563; }
+
+/* ---------- Misc ---------- */
+.loading-box { text-align: center; padding: 4rem 1rem; }
+.followup-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.application-card .card-body { padding: 1rem; }
