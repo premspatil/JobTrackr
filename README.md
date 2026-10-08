@@ -1,4 +1,4 @@
-# 💼 JobTrackr
+# 💼 JobTracker
 
 ### Full-Stack Job Application Tracking System
 
